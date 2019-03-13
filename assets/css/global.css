@@ -367,7 +367,7 @@ ol {
 li {
     margin: 0.5em 0;
     padding-left: 0.3em;
-    line-height: 1.6em;
+    line-height: 2em;
 }
 
 dt {
@@ -430,14 +430,14 @@ h4,
 h5,
 h6 {
     margin-top: 0;
-    line-height: 1.15;
+    line-height: 2.15;
     font-weight: 700;
     text-rendering: optimizeLegibility;
 }
 
 h1 {
     margin: 0 0 0.5em 0;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 700;
 }
 @media (max-width: 500px) {
