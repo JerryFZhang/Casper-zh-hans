@@ -24,6 +24,7 @@
                 {{#if primary_tag}}
                     <span class="post-card-tags">{{primary_tag.name}}</span>
                 {{/if}}
+                
                 <h2 class="post-card-title">{{title}}</h2>
             </header>
 
@@ -42,7 +43,6 @@
                     <div class="author-name-tooltip">
                         {{name}}
                     </div>
-
                     {{#if profile_image}}
                         <a href="{{url}}" class="static-avatar">
                             <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
@@ -50,11 +50,12 @@
                     {{else}}
                         <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
                     {{/if}}
+                    
                 </li>
             {{/foreach}}
             </ul>
 
-            <span class="reading-time">{{reading_time}}</span>
+            <span class="reading-time"><time class="post-full-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY 年 MM 月 DD 日"}}</time></span>
 
         </footer>
 
