@@ -1,0 +1,57 @@
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
+--}}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>标签列表 - {{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+</head>
+
+<body class="error-template">
+    <div class="site-wrapper">
+
+        {{> header background=feature_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
+        <div class="inner">
+            {{> "site-nav"}}
+            <div class="site-header-content">
+                <h1 class="site-title">标签列表</h1>
+            </div>
+        </div>
+        </header>
+
+        <main id="site-main" class="site-main outer">
+            <div class="inner">
+                <h1 class="post-full-title">标签列表</h1>
+            </div>
+        </main>
+
+        {{#get 'tags' limit='all' include='count.posts' order='count.posts desc'}}
+        <aside class="outer">
+            <div class="inner">
+                <div class="post-feed">
+                    <ul>
+                        {{#foreach tags}}
+                        <a href='{{ url }}'>
+                            <li>
+                                <h2>{{ name }} <small>({{ count.posts }})</small></h2>
+                            </li>
+                        </a>
+                        {{/foreach}}
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        {{/get}}
+
+    </div>
+</body>
+
+</html>
