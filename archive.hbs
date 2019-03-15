@@ -5,35 +5,34 @@ It's a good idea to keep this template as minimal as possible in terms of both f
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>{{meta_title}} 文章列表</title>
+    <title>文章列表 - {{meta_title}}</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
 </head>
+
 <body class="error-template">
     <div class="site-wrapper">
 
-    <header class="site-header outer">
+        {{> header background=feature_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
         <div class="inner">
             {{> "site-nav"}}
-        </div>
-    </header>
-
-        <main id="site-main" class="site-main outer">
-            <div class="inner">
-                <h1 class="post-full-title">文章列表</h1>
+            <div class="site-header-content">
+                <h1 class="site-title">归档</h1>
             </div>
-        </main>
+        </div>
+        </header>
 
-        {{#get "posts"}}
+        {{#get "posts" limit='all'}}
         <aside class="outer">
             <div class="inner">
                 <div class="post-feed">
                     {{#foreach posts}}
-                        {{> "post-item"}}
+                    {{> "post-item"}}
                     {{/foreach}}
                 </div>
             </div>
@@ -42,4 +41,5 @@ It's a good idea to keep this template as minimal as possible in terms of both f
 
     </div>
 </body>
+
 </html>
