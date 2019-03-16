@@ -1,45 +1,49 @@
-{{!--
-This error template is used for all 404 errors, which might occur on your site.
-It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
---}}
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+<title>归档 - {{meta_title}}</title>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>文章列表 - {{meta_title}}</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
-</head>
-
-<body class="error-template">
-    <div class="site-wrapper">
-
-        {{> header background=feature_image}} {{!--Special header.hbs partial to generate the <header> tag--}}
-        <div class="inner">
-            {{> "site-nav"}}
-            <div class="site-header-content">
-                <h1 class="site-title">归档</h1>
-            </div>
-        </div>
-        </header>
-
-        {{#get "posts" limit='all'}}
-        <aside class="outer">
-            <div class="inner">
-                <div class="post-feed">
-                    {{#foreach posts}}
-                    {{> "post-item"}}
-                    {{/foreach}}
-                </div>
-            </div>
-        </aside>
-        {{/get}}
-
+{{!-- The big featured header, it uses blog cover image as a BG if available --}}
+<header class="site-header outer">
+    <div class="inner">
+        {{> "site-nav"}}
     </div>
-</body>
+</header>
 
-</html>
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full">
+            <header class="post-full-header">
+                <h1 class="site-title">归档</h1>
+            </header>
+            <section class="post-full-content">
+                <div class="post-content">
+                    {{#get "posts" limit='all'}}
+                    <div class="inner">
+                        <div class="post-feed">
+                            {{#foreach posts}}
+                            <p style="width: 100%;">
+                                <small
+                                    style='font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace!important;'
+                                    datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY 年 MM 月 DD 日"}} </small> - <a href='{{ url }}'>{{title}}</a> 
+                            </p>
+                            {{/foreach}}
+                        </div>
+                    </div>
+                    {{/get}}
+                </div>
+            </section>
+        </article>
+    </div>
+</main>
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+    $(function () {
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+    });
+</script>
+{{/contentFor}}
