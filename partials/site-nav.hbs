@@ -16,13 +16,10 @@
             {{#if @site.facebook}}
                 <a class="social-link social-link-fb" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank" rel="noopener">{{> "icons/facebook"}}</a>
             {{/if}}
-            {{#if @site.twitter}}
-                <a class="social-link social-link-tw" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">{{> "icons/twitter"}}</a>
-            {{/if}}
             <a class="rss-button" href="{{@site.url}}/rss/" title="RSS" target="_blank" rel="noopener">{{> "icons/rss"}}</a>
         </div>
         {{#if @labs.subscribers}}
-            <a class="subscribe-button" href="#subscribe">订阅</a>
+            <a class="subscribe-button" href="#subscribe">邮件订阅</a>
         {{/if}}
         <a class="subscribe-button" onclick="removeImage()">一键去图</a>
     </div>
