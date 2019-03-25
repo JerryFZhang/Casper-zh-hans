@@ -1,66 +1,45 @@
-# Casper
+# Casper（中文优化版）
+此 Repo 为 [Ghost](https://github.com/TryGhost/Ghost) 官方默认主题 [Casper](https://github.com/TryGhost/Casper) 的改良版。如若有意见或建议，请加 Issue，无需特别标注，说明情况即可。
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/). This is the latest development version of Casper. If you're just looking to download the latest release, head over to the [releases](https://github.com/TryGhost/Casper/releases) page.
-
-&nbsp;
-
-![screenshot-desktop](https://user-images.githubusercontent.com/120485/27221326-1e31d326-5280-11e7-866d-82d550a7683b.jpg)
-
-&nbsp;
-
-# First time using a Ghost theme?
-
-Ghost uses a simple templating language called [Handlebars](http://handlebarsjs.com/) for its themes.
-
-We've documented our default theme pretty heavily so that it should be fairly easy to work out what's going on just by reading the code and the comments. Once you feel comfortable with how everything works, we also have full [theme API documentation](https://themes.ghost.org) which explains every possible Handlebars helper and template.
-
-**The main files are:**
-
-- `default.hbs` - The main template file
-- `index.hbs` - Used for the home page
-- `post.hbs` - Used for individual posts
-- `page.hbs` - Used for individual pages
-- `tag.hbs` - Used for tag archives
-- `author.hbs` - Used for author archives
-
-One really neat trick is that you can also create custom one-off templates just by adding the slug of a page to a template file. For example:
-
-- `page-about.hbs` - Custom template for the `/about/` page
-- `tag-news.hbs` - Custom template for `/tag/news/` archive
-- `author-ali.hbs` - Custom template for `/author/ali/` archive
-
-
-# Development
-
-Casper styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
-
-```bash
-$ yarn install
-$ yarn dev
+## 具体优化内容如下:
+### 添加了归档页面
+由于 Ghost 官方不相信归档的作用，Ghost 一直没有归档功能，本版本的主题添加了归档功能。使用前需要在 Labs 页面下载 YAML 路径配置文档 `routes.yaml`，在顶部添加：   
+```
+routes:
+  /archive/: 
+    template: archive
 ```
 
-Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+如果您的路径配置文件已存在  `routes:`，复制后两行粘贴 `routes:` 的下一行在即可。
+配置文件上传完后即可通过 `/archive/` 访问归档页面。
 
-The `zip` Gulp task packages the theme files into `dist/<theme-name>.zip`, which you can then upload to your site.
-
-```bash
-$ yarn zip
+### 添加了标签页面
+标签页面将列出您站点使用过的所有标签和文章数量。使用前需要在 Labs 页面下载 YAML 路径配置文档 `routes.yaml`，在顶部添加：   
+```
+routes:
+    /tags/: 
+        template: tags
 ```
 
-# PostCSS Features Used
+如果您的路径配置文件已存在  `routes:`，复制后两行粘贴 `routes:` 的下一行在即可。
+配置文件上传完后即可通过 `/tags/` 访问归档页面。
 
-- Autoprefixer - Don't worry about writing browser prefixes of any kind, it's all done automatically with support for the latest 2 major versions of every browser.
-- Variables - Simple pure CSS variables
-- [Color Function](https://github.com/postcss/postcss-color-function)
+### 中文 CSS 优化
+- 在 `default.hbs` 增加了 RSS 订阅链接和邮件订阅链接
+- 从 `partials/floating-header.hbs` 中移除了分享按钮
+- 从 `partials/post-card.hbs` 当中移除了预估阅读时长的功能
+- 在 `partials/post-card.hbs` 的主页文章卡片中加入了博客发布日期
+- 在 `partials/site-nav.hbs` 增加了邮件订阅链接和一键去图功能，开启方式请看下方的「一键去图」标题
+- 在 `post.hbs` 将英文日期更改为中文日期并将页面进行了汉化
+- 将 `tag.hbs` 页面进行了汉化
+- 
 
 
-# SVG Icons
 
-Casper uses inline SVG icons, included via Handlebars partials. You can find all icons inside `/partials/icons`. To use an icon just include the name of the relevant file, eg. To include the SVG icon in `/partials/icons/rss.hbs` - use `{{> "icons/rss"}}`.
-
-You can add your own SVG icons in the same manner.
-
-
-# Copyright & License
-
-Copyright (c) 2013-2019 Ghost Foundation - Released under the [MIT license](LICENSE).
+  function removeImage(){
+        $(".post-card-image-link").remove()    
+        $(".post-card-large").removeClass("post-card-large")
+        $(".post-card").css("flex", "1 1 1000px");
+        $(".post-full-image").remove()
+        $(".post-full-content:before").css("display", "none");
+    }
