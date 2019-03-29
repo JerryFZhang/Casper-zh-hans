@@ -31,12 +31,10 @@ routes:
 - 在 `partials/post-card.hbs` 的主页文章卡片中加入了博客发布日期
 - 在 `partials/site-nav.hbs` 增加了邮件订阅链接和一键去图功能，开启方式请看下方的「一键去图」标题
 - 在 `post.hbs` 将英文日期更改为中文日期并将页面进行了汉化
-- 将 `tag.hbs` 页面进行了汉化
+- 将所有页面进行了汉化
 - 将主题中的非衬线文字全部转换为衬线体
-- 
 
-
-### 一键去图
+#### 一键去图
 在 Code Injection 里的 Site Footer 栏中加入
 ```
 <script> 
