@@ -1,6 +1,8 @@
 # Casper（中文优化版）
 此 Repo 为 [Ghost](https://github.com/TryGhost/Ghost) 官方默认主题 [Casper](https://github.com/TryGhost/Casper) 的改良版。如若有意见或建议，请加 Issue，无需特别标注，说明情况即可。
 
+- [JerryZhang.blog](https://JerryZhang.blog) 使用了此主题
+
 ## 具体优化内容如下:
 ### 添加了归档页面
 由于 Ghost 官方不相信归档，Ghost 一直没有归档功能，本版本的主题添加了归档功能。使用前需要在 Labs 页面下载 YAML 路径配置文档 `routes.yaml`，在顶部添加：   
