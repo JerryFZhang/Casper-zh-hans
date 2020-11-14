@@ -1,5 +1,5 @@
 {
-    "name": "casper-zh",
+    "name": "Casper-zh-hans",
     "description": "Ghost 官方默认主题 Casper 的中文优化版。",
     "demo": "https://JerryZhang.blog",
     "version": "3.1.1",
@@ -23,9 +23,9 @@
         "postship": "git fetch && gulp release"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "JerryFZhang",
+        "email": "hi@jerryfzhang.com",
+        "url": "https://JerryZhang.blog"
     },
     "gpm": {
         "type": "theme",
@@ -41,10 +41,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Casper.git"
+        "url": "https://github.com/JerryFZhang/Casper-zh-hans.git"
     },
-    "bugs": "https://github.com/TryGhost/Casper/issues",
-    "contributors": "https://github.com/TryGhost/Casper/graphs/contributors",
+    "bugs": "https://github.com/JerryFZhang/Casper-zh-hans/issues",
+    "contributors": "https://github.com/JerryFZhang/Casper-zh-hans/graphs/contributors",
     "devDependencies": {
         "@tryghost/release-utils": "0.6.8",
         "autoprefixer": "10.0.2",
