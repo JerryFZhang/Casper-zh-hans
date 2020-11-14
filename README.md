@@ -3,6 +3,27 @@
 
 - [JerryZhang.blog](https://JerryZhang.blog) 使用了此主题
 
+## 如何下载？
+- 在 Release （https://github.com/JerryFZhang/Casper-zh-hans/releases/） 页面点击下载 zip。
+- 打开 Ghost 后台， 点击侧栏的 「Design」。
+- Design 页面的底部，「INSTALLED THEMES」 一栏， 点击 「Upload a theme」。
+- 上传下载的 zip 压缩包（请勿解压）。
+- 上传成功后，点击 「Activate」即可激活。
+- 在 Code Injection 里的 Site Footer 栏中加入以下代码即可使用 「一键去图」
+```
+<script> 
+    function removeImage(){
+        $(".post-card-image-link").remove()    
+        $(".post-card-large").removeClass("post-card-large")
+        $(".post-card").css("flex", "1 1 1000px");
+        $(".post-full-image").remove()
+        $(".post-full-content:before").css("display", "none");
+    }
+</script>
+```
+
+
+
 ## 具体优化内容如下:
 ### 添加了归档页面
 由于 Ghost 官方不相信归档，Ghost 一直没有归档功能，本版本的主题添加了归档功能。使用前需要在 Labs 页面下载 YAML 路径配置文档 `routes.yaml`，在顶部添加：   
@@ -37,17 +58,3 @@ routes:
 - 将主题中的部分衬线文字转换为非衬线体
 - 缩小了大部分文字的尺寸，增加了行高
 - 将 RSS 链接从 Feedly 的链接转换成原生链接
-
-#### 一键去图
-在 Code Injection 里的 Site Footer 栏中加入
-```
-<script> 
-    function removeImage(){
-        $(".post-card-image-link").remove()    
-        $(".post-card-large").removeClass("post-card-large")
-        $(".post-card").css("flex", "1 1 1000px");
-        $(".post-full-image").remove()
-        $(".post-full-content:before").css("display", "none");
-    }
-</script>
-```
