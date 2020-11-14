@@ -33,7 +33,6 @@
                       <a href="{{@site.url}}">最新文章</a>
                     {{#if @site.facebook}}<a href="{{facebook_url @site.facebook}}" target="_blank" rel="noopener">Facebook</a>{{/if}}
                     {{#if @site.twitter}}<a href="{{twitter_url @site.twitter}}" target="_blank" rel="noopener">Twitter</a>{{/if}}
-                    <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a>
                 </nav>
             </div>
         </footer>
@@ -65,7 +64,7 @@
                     <div class="form-group">
                         <input class="subscribe-email" data-members-email placeholder="youremail@example.com"
                             autocomplete="false" />
-                        <button class="button primary" type="submit">
+                        <button class="button primary subscribe-override" type="submit">
                             <span class="button-content">订阅</span>
                             <span class="button-loader">{{> "icons/loader"}}</span>
                         </button>
