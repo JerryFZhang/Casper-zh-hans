@@ -1,16 +1,5 @@
 {
   "extends": [
-    "config:base",
-    "schedule:earlyMondays"
-  ],
-  "packageRules": [
-    {
-      "packagePatterns": ["^postcss", "css", "autoprefixer"],
-      "groupName": "css processors"
-    },
-    {
-      "packagePatterns": ["gulp"],
-      "groupName": "gulp"
-    }
+    "@tryghost:theme"
   ]
 }

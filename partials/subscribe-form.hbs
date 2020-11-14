@@ -1,0 +1,19 @@
+<section class="subscribe-form">
+    <h3 class="subscribe-form-title">订阅 {{@site.title}}</h3>
+    <p class="subscribe-form-description">第一时间收到新文章提醒</p>
+    <form data-members-form="subscribe">
+        <div class="form-group">
+            <input class="subscribe-email" data-members-email placeholder="youremail@example.com" autocomplete="false" />
+            <button class="button primary" type="submit">
+                <span class="button-content">订阅</span>
+                <span class="button-loader">{{> "icons/loader"}}</span>
+            </button>
+        </div>
+        <div class="message-success">
+            <strong>订阅成功！</strong> 请查看您的邮箱，点击邮件里的链接来确认订阅。
+        </div>
+        <div class="message-error">
+            请输入正确的邮箱地址
+        </div>
+    </form>
+</section>
