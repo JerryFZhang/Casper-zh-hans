@@ -2,7 +2,7 @@
     "name": "Casper-zh-hans",
     "description": "Ghost 官方默认主题 Casper 的中文优化版。",
     "demo": "https://JerryZhang.blog",
-    "version": "3.1.3-0",
+    "version": "3.1.2-0",
     "engines": {
         "ghost": ">=3.0.0",
         "ghost-api": "v3"
